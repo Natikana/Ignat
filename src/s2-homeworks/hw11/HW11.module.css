@@ -1,8 +1,14 @@
 .container {
+    margin: 0 auto;
+    width: 400px;
 }
 
 .wrapper {
+
 }
 
 .number {
+    color: dimgrey;
+    font-size: 16px;
+    font-weight: bolder;
 }
