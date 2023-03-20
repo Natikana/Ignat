@@ -28,6 +28,9 @@ const SuperButton: React.FC<SuperButtonPropsType> = (
         <button
             disabled={disabled}
             className={finalClassName}
+            style={{border: '2px solid #03a9f4',
+                backgroundColor:"white",
+                width:'100px', height:'22px', color:'#03a9f4'}}
             {...restProps} // отдаём кнопке остальные пропсы если они есть (children там внутри)
         />
     )
