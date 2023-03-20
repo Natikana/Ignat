@@ -35,21 +35,23 @@ const HW14 = () => {
         getTechs(value)
             .then((res) => {
                 // делает студент
-
+                if (res) {
+                    setTechs(res.data.techs)
+                }
+                setLoading(false)
                 // сохранить пришедшие данные
-
-                //
             })
     }
 
     const onChangeText = (value: string) => {
         setFind(value)
         // делает студент
-
+        const params = Object.fromEntries(searchParams)
+        console.log(params)
+        const findQuery: { find: string } = {find: value}
+        const {find, ...restQueries} = params
         // добавить/заменить значение в квери урла
-        // setSearchParams(
-
-        //
+        setSearchParams({...restQueries, ...findQuery})
     }
 
     useEffect(() => {
@@ -66,14 +68,16 @@ const HW14 = () => {
 
     return (
         <div id={'hw14'}>
-            <div className={s2.hwTitle}>Homework #14</div>
-
+            <div className={s2.hwTitle}
+                 style={{color: 'black', fontSize: '22px', fontWeight: '500', marginBottom: '20px'}}>Homework №14
+            </div>
             <div className={s2.hw}>
                 <SuperDebouncedInput
                     id={'hw14-super-debounced-input'}
                     value={find}
                     onChangeText={onChangeText}
                     onDebouncedChange={sendQuery}
+                    style={{border: '2px solid #5151db', width: '400px', height: '30px'}}
                 />
 
                 <div id={'hw14-loading'} className={s.loading}>

@@ -18,13 +18,13 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
             {open && <div className={s.background} onClick={handleClose}/>}
 
             <aside className={sidebarClass}>
-                <button className={s.close} onClick={handleClose}>
+               {/* <button className={s.close} onClick={handleClose}>
                     <img
                         src={closeIcon}
                         alt="close sidebar"
                         id={'hw5-menu-close'}
                     />
-                </button>
+                </button>*/}
 
                 <nav id={'hw5-menu'} className={s.nav}>
                     <NavLink
@@ -33,7 +33,7 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                         onClick={handleClose}
                         // className={...} // делает студент
                     >
-                        Pre-junior
+                        {/*Pre-junior*/}
                     </NavLink>
                     <NavLink
                         id={'hw5-junior-link'}
@@ -41,7 +41,7 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                         onClick={handleClose}
                         // className={...} // делает студент
                     >
-                        Junior
+                       {/* Junior*/}
                     </NavLink>
                     <NavLink
                         id={'hw5-junior-plus-link'}
@@ -49,7 +49,7 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                         onClick={handleClose}
                         // className={...} // делает студент
                     >
-                        Junior Plus
+                        {/*Junior Plus*/}
                     </NavLink>
                 </nav>
             </aside>

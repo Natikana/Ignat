@@ -24,14 +24,14 @@ export const Header: FC<PropsType> = ({handleOpen}) => {
     return (
         <>
             <div id={'hw5-header'} className={s.header}>
-                <img
+                {/*<img
                     src={burgerIcon}
                     id={'hw5-burger-menu'}
                     className={s.burgerMenuIcon}
                     onClick={handleOpen}
                     alt={'open menu'}
                 />
-                <h1>{pageName}</h1>
+                <h1>{pageName}</h1>*/}
             </div>
         </>
     )
