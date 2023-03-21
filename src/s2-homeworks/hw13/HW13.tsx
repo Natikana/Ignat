@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
-import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
+import SuperButton from '../hw4/common/c2-SuperButton/SuperButton'
 import axios from 'axios'
 import success200 from './images/200.svg'
 import error400 from './images/400.svg'
@@ -38,9 +38,6 @@ const HW13 = () => {
                 setCode('Код 200!')
                 setImage(success200)
                 setInfo('')
-
-                // дописать
-
             })
             .catch((e) => {
                 if (e.message === 'Request failed with status code 500') {
@@ -63,66 +60,57 @@ const HW13 = () => {
     }
 
     return (
-        <div id={'hw13'}>
-            <div className={s2.hwTitle} style={{color: 'black'}}><h3>Homework #13</h3></div>
-
-            <div className={s2.hw}>
+        <div id={'hw13'} style={{ marginLeft:'30px'}}>
+            <div className={s2.hwTitle} style={{color: 'black'}}><h3>Homework №13</h3></div>
+            <div className={s2.hw} style={{height:'450px'}}>
                 <div className={s.buttonsContainer}>
                     <SuperButton
                         id={'hw13-send-true'}
                         onClick={send(true)}
-                        xType={'secondary'}
+                        // xType={'secondary'}
                         disabled={info === '...loading'}
-                        // дописать
-
                     >
                         Send true
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-false'}
                         onClick={send(false)}
-                        xType={'secondary'}
+                        // xType={'secondary'}
                         disabled={info === '...loading'}
-                        // дописать
-
                     >
                         Send false
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
-                        xType={'secondary'}
+                        // xType={'secondary'}
                         disabled={info === '...loading'}
-                        // дописать
-
                     >
                         Send undefined
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
-                        xType={'secondary'}
+                       /* xType={'secondary'}*/
                         disabled={info === '...loading'}
-                        // дописать
-
                     >
                         Send null
                     </SuperButton>
                 </div>
 
-                <div className={s.responseContainer}>
+                <div className={s.responseContainer} style={{margin:'30px 0 0 0'}}>
                     <div className={s.imageContainer}>
                         {image && <img src={image} className={s.image} alt="status"/>}
                     </div>
 
-                    <div className={s.textContainer}>
-                        <div id={'hw13-code'} className={s.code}>
+                    <div className={s.textContainer} style={{margin:'30px 0 0 0'}}>
+                        <div id={'hw13-code'} className={s.code} style={{fontWeight:'700'}} >
                             {code}
                         </div>
-                        <div id={'hw13-text'} className={s.text}>
+                        <div id={'hw13-text'} className={s.text} style={{fontWeight:'700'}}>
                             {text}
                         </div>
-                        <div id={'hw13-info'} className={s.info}>
+                        <div id={'hw13-info'} className={s.info} style={{fontWeight:'700'}}>
                             {info}
                         </div>
                     </div>

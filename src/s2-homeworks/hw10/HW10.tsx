@@ -1,46 +1,41 @@
 import React from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {AppStoreType} from './bll/store'
-import {loadingAC} from './bll/loadingReducer'
-import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
-import s2 from '../../s1-main/App.module.css'
-import {Loader} from './Loader'
+import SuperButton from '../hw4/common/c2-SuperButton/SuperButton'
+import {useDispatch, useSelector} from "react-redux";
+import {Dispatch} from "redux";
+import {AppStoreType} from "./bll/store";
+import {loadingAC, LoadingT, loadingTrueAC, } from "./bll/loadingReducer";
 
-/*
-* 1 - в файле loadingReducer.ts дописать типы и логику
-* 2 - получить isLoading из редакса
-* 3 - дописать функцию setLoading
-* 4 - сделать стили в соответствии с дизайном
-* */
+function HW10() {
 
-const HW10 = () => {
-    // useSelector, useDispatch // пишет студент
-    const isLoading = false
+    const isLoading = useSelector<AppStoreType, boolean>(state => state.loading.isLoading)
+    const dispatch = useDispatch<Dispatch<LoadingT>>()
 
-    const setLoading = () => { // пишет студент // показать крутилку на 1,5 секунд
-        // dispatch
+    const setLoading = () => {
 
-        // setTimeout
-    }
+        setTimeout(() => {
+            dispatch(loadingAC())
+        },2000)
+        dispatch(loadingTrueAC())
+    };
 
     return (
-        <div id={'hw10'}>
-            <div className={s2.hwTitle}>Homework #10</div>
-
-            <div className={s2.hw}>
-                {isLoading ? (
-                    <div id={'hw10-loading'}>
-                        <Loader/>
-                    </div>
+        <div style={{height:'80px',marginLeft:'30px'}}>
+            <h3>Homeworks №10</h3>
+            {isLoading
+                ? (
+                    <div style={{color:'yellow',fontWeight:'700'}}>крутилка...</div>
                 ) : (
-                    <SuperButton
-                        id={'hw10-button-start-loading'}
-                        onClick={setLoading}
-                    >
-                        Set loading...
-                    </SuperButton>
-                )}
-            </div>
+                    <div>
+                        <SuperButton onClick={setLoading} style={
+                            {
+                            backgroundColor:'blueviolet',
+                            color: 'white',
+                            border: 'solid 1px blueviolet',
+                            borderRadius: '3px'}
+                        }>set loading...</SuperButton>
+                    </div>
+                )
+            }
         </div>
     )
 }

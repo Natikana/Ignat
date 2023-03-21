@@ -1,5 +1,5 @@
-import React from 'react'
-import SuperSelect from '../../../hw07/common/c5-SuperSelect/SuperSelect'
+import React, {ChangeEvent} from 'react'
+import SuperSelect from '../../../hw7/common/c5-SuperSelect/SuperSelect'
 import {Pagination} from '@mui/material'
 import s from './SuperPagination.module.css'
 
@@ -16,23 +16,26 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
         page, itemsCountForPage, totalCount, onChange, id = 'hw15',
     }
 ) => {
-    const lastPage = 10 // пишет студент // вычислить количество страниц
+    const lastPage = Math.ceil(totalCount / itemsCountForPage)
 
-    const onChangeCallback = (event: any, page: number) => {
-        // пишет студент
+    const onChangeCallback = (event: ChangeEvent<unknown>, page: number) => {
+        onChange(page, itemsCountForPage)
     }
 
-    const onChangeSelect = (event: any) => {
-        // пишет студент
+    const onChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+        onChange(page, +event.currentTarget.value);
     }
 
     return (
-        <div className={s.pagination}>
+        <div className={s.pagination} style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            height: '30px',
+            marginBottom: '20px'
+        }}>
             <Pagination
                 id={id + '-pagination'}
-                sx={{
-                    // стили для Pagination // пишет студент
-                }}
+                sx={{}}
                 page={page}
                 count={lastPage}
                 onChange={onChangeCallback}
@@ -40,8 +43,8 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
                 hidePrevButton
             />
 
-            <span className={s.text1}>
-                показать
+            <span className={s.text1} style={{fontSize: '16px', fontWeight: '500'}}>
+                Показать
             </span>
 
             <SuperSelect
@@ -55,8 +58,8 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
                 onChange={onChangeSelect}
             />
 
-            <span className={s.text2}>
-                строк в таблице
+            <span className={s.text2} style={{fontSize: '16px', fontWeight: '500'}}>
+                строки в таблице
             </span>
         </div>
     )

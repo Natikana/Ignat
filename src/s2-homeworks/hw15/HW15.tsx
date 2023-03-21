@@ -51,63 +51,59 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                setLoading(false)
+                if (res) {
+                    setTotalCount(res.data.totalCount)
+                    setTechs(res.data.techs)
+                }
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
+        setPage(newPage)
+        setCount(newCount)
+        let params = Object.fromEntries(searchParams)
 
-        // setPage(
-        // setCount(
-
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        setSearchParams({...params, page: newPage + '', count: newCount + ''})
+        sendQuery({...params, page: newPage + '', count: newCount + ''})
     }
 
     const onChangeSort = (newSort: string) => {
-        // делает студент
+        setSort(newSort)
+        setPage(1)
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        let params = Object.fromEntries(searchParams)
 
-        // sendQuery(
-        // setSearchParams(
+        setSearchParams({...params, sort: newSort})
+        sendQuery({...params, sort: newSort})
 
-        //
     }
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
+        sendQuery({...params})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
 
     const mappedTechs = techs.map(t => (
-        <div key={t.id} className={s.row}>
-            <div id={'hw15-tech-' + t.id} className={s.tech}>
+        <div key={t.id} className={s.row} style={{padding:'15px 0px 15px 0px' }}>
+            <div id={'hw15-tech-' + t.id} className={s.tech} style={{marginLeft:'20px', fontSize:'16px', fontWeight:'500'}}>
                 {t.tech}
             </div>
 
-            <div id={'hw15-developer-' + t.id} className={s.developer}>
+            <div id={'hw15-developer-' + t.id} className={s.developer} style={{fontSize:'16px', fontWeight:'500'}}>
                 {t.developer}
             </div>
         </div>
     ))
 
     return (
-        <div id={'hw15'}>
-            <div className={s2.hwTitle}>Homework #15</div>
+        <div id={'hw15'} style={{marginLeft:'30px', height:'450px'}}>
+            <div className={s2.hwTitle} ><h3>Homework №15</h3></div>
 
-            <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+            <div className={s2.hw} style={{width:'600px',margin:'20px 0 0 0' }}>
+                {idLoading && <div id={'hw15-loading'} className={s.loading}  style={{fontSize:'16px', fontWeight:'500'}}>Loading...</div>}
 
                 <SuperPagination
                     page={page}
@@ -116,18 +112,18 @@ const HW15 = () => {
                     onChange={onChangePagination}
                 />
 
-                <div className={s.rowHeader}>
-                    <div className={s.techHeader}>
-                        tech
+                <div className={s.rowHeader} style={{background:'lightgrey', height:'30px', alignItems:'center'}}>
+                    <div className={s.techHeader} style={{marginLeft:'20px',fontSize:'14px', fontWeight:'700'}}>
+                        Tech
                         <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
-                    </div>
+                   </div>
 
-                    <div className={s.developerHeader}>
-                        developer
+                    <div className={s.developerHeader} style={{fontSize:'14px', fontWeight:'700'}}>
+                        Developer
                         <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
                     </div>
-                </div>
 
+                </div>
                 {mappedTechs}
             </div>
         </div>

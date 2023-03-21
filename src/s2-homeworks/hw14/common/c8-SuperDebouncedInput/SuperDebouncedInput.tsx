@@ -1,5 +1,5 @@
 import React, {DetailedHTMLProps, InputHTMLAttributes, ReactNode, useState} from 'react'
-import SuperInputText from '../../../hw04/common/c1-SuperInputText/SuperInputText'
+import SuperInputText from '../../../hw4/common/c1-SuperInputText/SuperInputText'
 
 // тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
@@ -50,3 +50,8 @@ const SuperDebouncedInput: React.FC<SuperDebouncedInputPropsType> = (
 }
 
 export default SuperDebouncedInput
+/*
+'{ accept?: string | undefined; alt?: string | undefined; autoComplete?: string | undefined; ' +
+'autoFocus?: boolean | undefined; capture?: boolean | "user" | "environment" | undefined; ... 285 more ...; ' +
+'onChangeText: (value: string) => void; }' is not assignable to type '{ onChangeText?: ((value: string) => void) | undefined; ' +
+'onEnter?: (() => void) | undefined; error?: string | undefined; spanClassName?: string | undefined; }'. Types of property 'error' are incompatible.*/

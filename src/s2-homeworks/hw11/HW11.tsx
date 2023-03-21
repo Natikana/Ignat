@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import s from './HW11.module.css'
 import s2 from '../../s1-main/App.module.css'
-import { restoreState } from '../hw06/localStorage/localStorage'
+import { restoreState } from '../hw6/localStorage/localStorage'
 import SuperRange from './common/c7-SuperRange/SuperRange'
 
 
@@ -23,12 +23,11 @@ function HW11() {
         } else {
             setValue1(value)
         }
-        // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
     }
 
     return (
-        <div id={'hw11'}>
-            <div className={s2.hwTitle}>Homework #11</div>
+        <div id={'hw11'} style={{height:'200px',margin:'30px 0 0 30px'}}>
+            <div className={s2.hwTitle}><h3>Homeworks №11</h3></div>
 
             <div className={s2.hw}>
                 <div className={s.container}>
