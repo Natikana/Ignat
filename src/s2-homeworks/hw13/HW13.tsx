@@ -37,7 +37,8 @@ const HW13 = () => {
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
-                setInfo('')
+                setText(res.data.errorText)
+                setInfo(res.data.info)
             })
             .catch((e) => {
                 if (e.message === 'Request failed with status code 500') {
@@ -62,7 +63,7 @@ const HW13 = () => {
     return (
         <div id={'hw13'} style={{ marginLeft:'30px'}}>
             <div className={s2.hwTitle} style={{color: 'black'}}><h3>Homework №13</h3></div>
-            <div className={s2.hw} style={{height:'450px'}}>
+            <div className={s2.hw} style={{height:'500px'}}>
                 <div className={s.buttonsContainer}>
                     <SuperButton
                         id={'hw13-send-true'}
