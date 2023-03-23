@@ -1,0 +1,16 @@
+.content {
+    background-image: url("https://www.worldbank.org/content/dam/photos/780x439/2022/jan-2/deep-blue-sea_shutterstock_1512728810.jpg");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.number, .text {
+    color:white;
+    font-weight: bold;
+    font-size: 40px;
+}
+.page {
+    display: none;
+}

@@ -1,0 +1,64 @@
+.homeworks {
+    color: darkslateblue;
+    text-align: center;
+}
+.message {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px 5px 5px;
+    background-color: cadetblue;
+    margin: 0 auto;
+    height: 80px;
+    width: 350px;
+}
+.avatarContent {
+    display: flex;
+    padding: 12px 12px 0 12px;
+    align-items: flex-end;
+}
+.avatar {
+    border: none;
+    border-radius: 50%;
+}
+.coner {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 10px solid darkcyan;
+    top: 75px;
+    right: 279px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 60px;
+    padding: 10px;
+    background:darkcyan;
+    background: linear-gradient(135deg, transparent 3px, darkcyan 0) top left,
+    linear-gradient(-135deg, transparent 3px, darkcyan 0) top right,
+    linear-gradient(-45deg, transparent 3px, darkcyan 0) bottom right,
+    linear-gradient(0deg, transparent 0px, darkcyan 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.name {
+    color: darkslateblue;
+    font-size: 22px;
+}
+.ask {
+    display: flex;
+    justify-content: space-between;
+}
+.note {
+    color: white;
+    font-size: 25px;
+}
+.time {
+    font-size: 22px;
+    color: gray;
+    line-height: 45px;
+}
