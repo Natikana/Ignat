@@ -1,13 +1,12 @@
 import React from 'react'
 import s from './Error404.module.css'
-
-
-function Error404() {
+import error404 from './404.svg'
+const Error404 = () => {
     return (
-        <div className={s.content}>
-            <div className={s.number}>404</div>
-            <div className={s.text}>Page not found!</div>
-            <div className={s.page}>—ฅ/ᐠ.̫ .ᐟ\ฅ—</div>
+        <div id={'hw5-page-404'}>
+            <div className={s.wrapper}>
+                <img src={error404} alt={'404'} className={s.error404} />
+            </div>
         </div>
     )
 }
