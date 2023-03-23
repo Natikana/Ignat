@@ -41,18 +41,19 @@ const HW13 = () => {
                 setInfo(res.data.info)
             })
             .catch((e) => {
+                console.log(e)
                 if (e.message === 'Request failed with status code 500') {
                     setImage(error500)
-                    setText('ОШИБКА 500!' + ' ' + e.response.data.errorText + ' ' + e.response.data.info)
+                    setText(`ОШИБКА ${e.response.status}! ${e.response.data.errorText}  ${e.response.data.info}`)
                 }
                 if (e.message === 'Request failed with status code 400') {
                     console.log(e)
                     setImage(error400)
-                    setText('ОШИБКА 400' + ' ' + e.response.data.errorText + ' ' + e.response.data.info)
+                    setText(`ОШИБКА ${e.response.status}!  ${e.response.data.errorText}  ${e.response.data.info}`)
                 }
                 if (e.message === 'Network Error') {
                     setImage(errorUnknown)
-                    setText('ERROR! NetworkError' + ' ' + e.name)
+                    setText(` ${e.message.split(' ').slice(1)[0]}! NetworkError  ${e.name}`)
                 }
                 setInfo('')
                 // дописать
