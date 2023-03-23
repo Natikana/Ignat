@@ -1,0 +1,15 @@
+.name {
+    color: white;
+}
+.age {
+    color: yellow;
+}
+.space {
+    margin-right: 5px;
+}
+.btn {
+    background: blueviolet;
+    color: white;
+    border-radius: 3px;
+    border: blueviolet solid 2px;
+}

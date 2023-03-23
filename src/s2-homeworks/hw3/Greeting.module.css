@@ -1,0 +1,20 @@
+.someClass {
+
+}
+.count {
+    color: yellow;
+    font-weight: 700;
+    margin-left: 10px;
+}
+.button {
+    background-color: darkslateblue;
+    color: white;
+    width: 60px;
+    margin-left: 10px;
+}
+.error {
+    border: 1px solid red;
+}
+.errorText {
+    color: red;
+}
