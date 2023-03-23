@@ -1,7 +1,8 @@
 import React, {ChangeEvent} from 'react'
-import SuperSelect from '../../../hw7/common/c5-SuperSelect/SuperSelect'
+
 import {Pagination} from '@mui/material'
 import s from './SuperPagination.module.css'
+import SuperSelect from "../../../hw07/common/c5-SuperSelect/SuperSelect";
 
 export type SuperPaginationPropsType = {
     id?: string
